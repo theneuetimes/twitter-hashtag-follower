@@ -1,0 +1,23 @@
+{
+  "name": "twitter-hashtag-follower",
+  "version": "1.0.0",
+  "description": "Chrome extension that allows you to follow hashtags directly",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theneuetimes/twitter-hashtag-follower.git"
+  },
+  "author": "Daniel Wygoński",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/theneuetimes/twitter-hashtag-follower/issues"
+  },
+  "homepage": "https://github.com/theneuetimes/twitter-hashtag-follower#readme",
+  "dependencies": {
+    "twit": "^2.2.11"
+  }
+}
