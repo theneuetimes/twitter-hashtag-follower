@@ -11,7 +11,7 @@ const T = new Twit({
   strictSSL: true
 });
 
-// var stream = T.stream('statuses/filter', {track: '#persona5'});
+// var stream = T.stream('statuses/filter', {track: ['#persona5', '#p5a']});
 var stream = T.stream('statuses/sample');
 
 stream.on('tweet', (tweet) => {
@@ -25,6 +25,9 @@ stream.on('tweet', (tweet) => {
       name: tweet.user.name,
       profile_image_url_https: tweet.user.profile_image_url_https,
       screen_name: tweet.user.screen_name
+    },
+    entities: {
+      media: tweet.entities.media
     }
   }
 

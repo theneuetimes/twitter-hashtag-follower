@@ -71,17 +71,19 @@ let tweetTemplate = (data) => {
               <p class="TweetTextSize js-tweet-text tweet-text" lang="en" data-aria-label-part="0">${data.text}</p>
             </div>
 
-            <div class="AdaptiveMediaOuterContainer">
-              <div class="AdaptiveMedia is-square">
-                <div class="AdaptiveMedia-container">
-                  <div class="AdaptiveMedia-singlePhoto" style="padding-top: calc(1.0 * 100% - 0.5px);">
-                    <div class="AdaptiveMedia-photoContainer js-adaptive-photo " data-image-url="${data.user.profile_image_url_https}" data-element-context="platform_photo_card" style="background-color:rgba(64,55,44,1.0);" data-dominant-color="[64,55,44]">
-                      <img data-aria-label-part="" src="${data.user.profile_image_url_https}" alt="" style="width: 100%; top: -0px;">
+            ${data.entities.media ? (
+              `<div class="AdaptiveMediaOuterContainer">
+                <div class="AdaptiveMedia is-square">
+                  <div class="AdaptiveMedia-container">
+                    <div class="AdaptiveMedia-singlePhoto" style="padding-top: calc(1.0 * 100% - 0.5px);">
+                      <div class="AdaptiveMedia-photoContainer js-adaptive-photo " data-image-url="${data.entities.media[0]}" data-element-context="platform_photo_card" style="background-color:rgba(64,55,44,1.0);" data-dominant-color="[64,55,44]">
+                        <img data-aria-label-part="" src="${data.entities.media[0]}" alt="" style="width: 100%; top: -0px;">
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
+              </div>`
+            ) : '' }
 
           
             <div class="stream-item-footer">
@@ -92,12 +94,12 @@ let tweetTemplate = (data) => {
                   </span>
                 </span>
                 <span class="ProfileTweet-action--retweet u-hiddenVisually">
-                  <span class="ProfileTweet-actionCount" data-tweet-stat-count="1">
+                  <span class="ProfileTweet-actionCount" data-tweet-stat-count="0">
                     <span class="ProfileTweet-actionCountForAria" id="profile-tweet-action-retweet-count-aria-${data.id_str}" data-aria-label-part="">0 retweets</span>
                   </span>
                 </span>
                 <span class="ProfileTweet-action--favorite u-hiddenVisually">
-                  <span class="ProfileTweet-actionCount" data-tweet-stat-count="6">
+                  <span class="ProfileTweet-actionCount" data-tweet-stat-count="0">
                     <span class="ProfileTweet-actionCountForAria" id="profile-tweet-action-favorite-count-aria-${data.id_str}" data-aria-label-part="">0 likes</span>
                   </span>
                 </span>
@@ -124,7 +126,7 @@ let tweetTemplate = (data) => {
                       <span class="u-hiddenVisually">Retweet</span>
                     </div>
                     <span class="ProfileTweet-actionCount">
-                      <span class="ProfileTweet-actionCountForPresentation" aria-hidden="true">1</span>
+                      <span class="ProfileTweet-actionCountForPresentation" aria-hidden="true">0</span>
                     </span>
                   </button>
 
@@ -134,7 +136,7 @@ let tweetTemplate = (data) => {
                       <span class="u-hiddenVisually">Retweeted</span>
                     </div>
                     <span class="ProfileTweet-actionCount">
-                      <span class="ProfileTweet-actionCountForPresentation" aria-hidden="true">1</span>
+                      <span class="ProfileTweet-actionCountForPresentation" aria-hidden="true">0</span>
                     </span>
                   </button>
                 </div>
@@ -148,7 +150,7 @@ let tweetTemplate = (data) => {
                       <span class="u-hiddenVisually">Like</span>
                     </div>
                     <span class="ProfileTweet-actionCount">
-                      <span class="ProfileTweet-actionCountForPresentation" aria-hidden="true">6</span>
+                      <span class="ProfileTweet-actionCountForPresentation" aria-hidden="true">0</span>
                     </span>
                   </button>
 
@@ -159,7 +161,7 @@ let tweetTemplate = (data) => {
                       <span class="u-hiddenVisually">Liked</span>
                     </div>
                     <span class="ProfileTweet-actionCount">
-                      <span class="ProfileTweet-actionCountForPresentation" aria-hidden="true">6</span>
+                      <span class="ProfileTweet-actionCountForPresentation" aria-hidden="true">0</span>
                     </span>
                   </button>
                 </div>
