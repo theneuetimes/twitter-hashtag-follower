@@ -1,0 +1,11 @@
+{
+  "name": "Twitter Hashtag Follower",
+  "version": "1.0",
+  "author": "Daniel Wygoński",
+  "description": "Chrome extension that allows you to follow hashtags directly",
+  "content_scripts": [{
+    "js": ["build/index.js"],
+    "matches": ["https://twitter.com/*"]
+  }],
+  "manifest_version": 2
+}

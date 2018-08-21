@@ -11,8 +11,8 @@ const T = new Twit({
   strictSSL: true
 });
 
-// var stream = T.stream('statuses/filter', {track: ['#persona5', '#p5a']});
-var stream = T.stream('statuses/sample');
+var stream = T.stream('statuses/filter', {track: ['#persona5', '#p5a']});
+// var stream = T.stream('statuses/sample');
 
 stream.on('tweet', (tweet) => {
   let tweetData = {
@@ -31,6 +31,5 @@ stream.on('tweet', (tweet) => {
     }
   }
 
-  console.log(JSON.stringify(tweetData) + "\n\n\n\n\n\n\n");
-  // tweetTemplate
+  tweetTemplate(tweetData);
 });
