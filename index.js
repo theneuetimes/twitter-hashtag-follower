@@ -1,5 +1,6 @@
 const Twit = require('twit');
 const config = require('./config');
+const tweetTemplate = require('./views/template');
 
 const T = new Twit({
   consumer_key: config.consumer_key,
@@ -10,8 +11,23 @@ const T = new Twit({
   strictSSL: true
 });
 
-var stream = T.stream('statuses/filter', {track: '#persona5'});
+// var stream = T.stream('statuses/filter', {track: '#persona5'});
+var stream = T.stream('statuses/sample');
 
 stream.on('tweet', (tweet) => {
-  console.log(tweet);
+  let tweetData = {
+    created_at: tweet.created_at,
+    id: tweet.id,
+    id_str: tweet.id_str,
+    text: tweet.text,
+    user: {
+      id: tweet.user.id,
+      name: tweet.user.name,
+      profile_image_url_https: tweet.user.profile_image_url_https,
+      screen_name: tweet.user.screen_name
+    }
+  }
+
+  console.log(JSON.stringify(tweetData) + "\n\n\n\n\n\n\n");
+  // tweetTemplate
 });
